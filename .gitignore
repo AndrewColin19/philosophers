@@ -1,0 +1,4 @@
+*.o
+philo
+.vscode
+.DS_Store

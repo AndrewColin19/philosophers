@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:31:13 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/26 16:34:50 by acolin           ###   ########.fr       */
+/*   Updated: 2021/11/30 19:52:03 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ unsigned long	get_time(t_time_philo *time)
 	gettimeofday(&time->current_time, NULL);
 	return (((time->current_time.tv_sec - time->start_s) * 1000) +
 		((time->current_time.tv_usec - time->start_us) / 1000));
+}
+
+void	p_think()
+{
+	
+}
+
+void	p_sleep()
+{
+
+}
+
+void	p_eat()
+{
+	
 }
 
 void *routine(void *arg)
