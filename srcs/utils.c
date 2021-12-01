@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:13:32 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/26 14:14:58 by acolin           ###   ########.fr       */
+/*   Updated: 2021/12/01 18:52:04 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../includes/philo.h"
 /**
  * vérifie si l'on a un chiffre (0 à 9).
  *
@@ -61,4 +62,16 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	}
 	return (num * neg);
+}
+
+void	aff_msg_p(t_philo *philo, char *message)
+{
+	if (message != NULL)
+	{
+		pthread_mutex_lock(&philo->table->p_print);
+		if (!philo->table->death)
+			printf("%lu %u %s\n", get_ms_to_start(philo->table),
+				philo->nb, message);
+		pthread_mutex_unlock(&philo->table->p_print);
+	}
 }

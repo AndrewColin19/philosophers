@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:17:05 by acolin            #+#    #+#             */
-/*   Updated: 2021/11/26 16:07:28 by acolin           ###   ########.fr       */
+/*   Updated: 2021/12/01 18:10:59 by andrew           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,19 @@ static int	check_arg(int argc, char **argv)
 	return (1);
 }
 
-int	parse_arg(int argc, char **argv, t_philo *philo)
+int	parse_arg(int argc, char **argv, t_table *table)
 {
 	if (!check_arg(argc, argv))
 		return (0);
-	philo->n = 0;
-	philo->nbphilo = ft_atoi(argv[1]);
-	philo->time_to_die = ft_atoi(argv[2]);
-	philo->time_to_eat = ft_atoi(argv[3]);
-	philo->time_to_sleep = ft_atoi(argv[4]);
+	table->start = 0;
+	table->death = 0;
+	table->nbphilo = ft_atoi(argv[1]);
+	table->time_to_die = ft_atoi(argv[2]);
+	table->time_to_eat = ft_atoi(argv[3]);
+	table->time_to_sleep = ft_atoi(argv[4]);
 	if (argc == 6)
-		philo->number_of_eat = ft_atoi(argv[5]);
+		table->number_of_eat = ft_atoi(argv[5]);
+	else
+		table->number_of_eat = -1;
 	return (1);
 }
