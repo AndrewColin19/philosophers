@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:13:32 by acolin            #+#    #+#             */
-/*   Updated: 2021/12/01 18:52:04 by andrew           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:53:33 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,14 @@ void	aff_msg_p(t_philo *philo, char *message)
 				philo->nb, message);
 		pthread_mutex_unlock(&philo->table->p_print);
 	}
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

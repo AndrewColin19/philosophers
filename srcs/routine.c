@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 15:31:13 by acolin            #+#    #+#             */
-/*   Updated: 2021/12/01 18:44:39 by andrew           ###   ########.fr       */
+/*   Updated: 2021/12/02 11:13:26 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	p_think(t_philo *philo)
 {
 	philo->action.think = 1;
 	aff_msg_p(philo, THINK);
+	philo->action.think = 0;
 }
 
 void	p_sleep(t_philo *philo)
 {
-	philo->action.think = 0;
 	philo->action.sleep = 1;
 	aff_msg_p(philo, SLEEP);
 	usleep_perso(philo->table->time_to_sleep);
@@ -54,7 +54,7 @@ void	*routine(void *arg)
 
 	philo = (t_philo *) arg;
 	if (philo->nb % 2 == 0)
-		usleep_perso(100);
+		usleep_perso(10);
 	while (!philo->table->death)
 	{
 		p_eat(philo);

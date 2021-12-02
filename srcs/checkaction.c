@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   checkaction.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:38:22 by andrew            #+#    #+#             */
-/*   Updated: 2021/12/01 18:51:10 by andrew           ###   ########.fr       */
+/*   Updated: 2021/12/02 13:27:18 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	p_check_eat(t_table *table)
+static int	p_check_eat(t_table *table)
 {
 	int	i;
 
@@ -31,25 +31,23 @@ void	p_check_death(t_table *table)
 {
 	int	i;
 
-	if (table->nbphilo == 1)
-		aff_msg_p(table->philos, DIE);
-	while (table->nbphilo > 1)
+	while (42)
 	{
 		i = -1;
 		while (++i < table->nbphilo)
 		{
-			if (table->philos[i].action.eat)
-				continue ;
-			if ((get_ms_now() - table->philos[i].time_eat)
-				>= table->time_to_die && table->philos[i].time_eat != 0)
+			if (!table->philos[i].action.eat)
 			{
-				aff_msg_p(&table->philos[i], DIE);
-				table->death = 1;
-				return ;
+				if ((get_ms_now() - table->philos[i].time_eat)
+					>= table->time_to_die)
+				{
+					aff_msg_p(&table->philos[i], DIE);
+					table->death = 1;
+					return ;
+				}
 			}
 		}
 		if (p_check_eat(table))
 			break ;
 	}
-	table->death = 1;
 }

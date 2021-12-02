@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrew <andrew@student.42.fr>              +#+  +:+       +#+        */
+/*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:18:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/12/01 18:50:50 by andrew           ###   ########.fr       */
+/*   Updated: 2021/12/02 12:54:02 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_table
 int				ft_isdigit(int c);
 int				ft_atoi(const char *nptr);
 void			aff_msg_p(t_philo *philo, char *message);
+size_t			ft_strlen(const char *s);
 /*parse*/
 int				parse_arg(int argc, char **argv, t_table *table);
 /*routine*/
