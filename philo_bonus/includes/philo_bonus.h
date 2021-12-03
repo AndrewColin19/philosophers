@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:18:00 by acolin            #+#    #+#             */
-/*   Updated: 2021/12/02 13:58:41 by acolin           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:44:50 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -19,6 +19,7 @@
 # include <time.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <semaphore.h>
 
 # define TAKE "has taken a fork"
 # define EAT "is eating"
@@ -38,8 +39,6 @@ typedef struct s_philo
 {
 	int				nb;
 	pthread_t		thread_p;
-	pthread_mutex_t	*fork;
-	pthread_mutex_t	*fork_other;
 	struct s_table	*table;
 	size_t			time_eat;
 	int				eat;
@@ -55,8 +54,9 @@ typedef struct s_table
 	size_t			time_to_eat;
 	size_t			time_to_die;
 	t_philo			*philos;
+	sem_t			*forks;
+	sem_t			*p_print;
 	struct timeval	time;
-	pthread_mutex_t	p_print;
 }	t_table;
 
 /*utils*/

@@ -6,11 +6,11 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:38:22 by andrew            #+#    #+#             */
-/*   Updated: 2021/12/03 12:22:43 by acolin           ###   ########.fr       */
+/*   Updated: 2021/12/03 12:39:39 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/philo.h"
+#include "../includes/philo_bonus.h"
 
 static int	p_check_eat(t_table *table)
 {
