@@ -6,7 +6,7 @@
 /*   By: acolin <acolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:17:05 by acolin            #+#    #+#             */
-/*   Updated: 2021/12/03 12:23:35 by acolin           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:21:13 by acolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ int	parse_arg(int argc, char **argv, t_table *table)
 	}
 	table->death = 0;
 	table->nbphilo = ft_atoi(argv[1]);
+	if (table->nbphilo == 0)
+	{
+		printf("Error args\n");
+		return (0);
+	}
 	table->time_to_die = ft_atoi(argv[2]);
 	table->time_to_eat = ft_atoi(argv[3]);
 	table->time_to_sleep = ft_atoi(argv[4]);
